@@ -2,7 +2,10 @@ import java.util.*;
 
 public class Solution {
     public static char mostFrequentChar(String s) {
+      // creating a hashmap
       var charHashMap = new HashMap<Character, Integer>();
+      
+      // running a for loop to check each character of the String
       for(int i = 0; i < s.length(); i++){
         char c = s.toLowerCase().charAt(i);
           if (charHashMap.containsKey(c)){
@@ -12,17 +15,20 @@ public class Solution {
           charHashMap.put(c, 1);
           }      
         }
-        int largest = Integer.MIN_VALUE;
+
+        // creating an int to find the most frequent character
+
+        int frequency = Integer.MIN_VALUE;
         var keySet = charHashMap.keySet();
-                
+
         for(char c: keySet){
-          if(charHashMap.get(c) >= largest){
-            largest = charHashMap.get(c);
+          if(charHashMap.get(c) >= frequency){
+            frequency = charHashMap.get(c);
           }
         }
         char mostFrequent= 'a';
         for(char c: keySet){
-          if (charHashMap.get(c) == largest){
+          if (charHashMap.get(c) == frequency){
             mostFrequent = c ;
           }
         }
